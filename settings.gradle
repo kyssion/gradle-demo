@@ -5,4 +5,5 @@ rootProject.name = 'gradle-demo'
 //载入其他包
 include 'greeting-library'
 include 'greeter'
+include 'create-java-library'
 
