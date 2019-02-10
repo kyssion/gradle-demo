@@ -1,13 +1,8 @@
-package java.test.library;
-
-
+package com.kyssion.library;
 
 import org.junit.Test;
 
-import java.library.Library;
-
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertTrue;
 
 public class LibraryTest {
     @Test

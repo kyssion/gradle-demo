@@ -1,7 +1,7 @@
-package java.library;
+package com.kyssion.library;
 
 public class Library {
     public boolean someLibraryMethod() {
-        return true;
+        return false;
     }
 }
