@@ -18,4 +18,9 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
 }
-
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                'Implementation-Version': project.version)
+    }
+}
