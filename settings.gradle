@@ -7,4 +7,4 @@ include 'greeter'
 include 'create-java-library'
 include 'java-application'
 include 'java-web'
-
+include 'customTask'

@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+tasks.register("hello") {
+    group "task group"
+    description "a simple demo task"
+    doLast {
+        println 'Hello, World!'
+    }
+}
+group 'com.kyssion'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
