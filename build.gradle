@@ -57,3 +57,19 @@ task encode {
         println new String(encodedString)
     }
 }
+
+task testProject{
+    println "test item"
+}
+
+project(':java-web') {
+    task testProject {
+        println "sdfsdf"
+    }
+}
+
+
+println tasks.getByPath('testProject').path
+println tasks.getByPath(':testProject').path
+println tasks.getByPath('java-web:testProject').path
+println tasks.getByPath(':java-web:testProject').path
