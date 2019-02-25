@@ -1,3 +1,59 @@
+import org.apache.commons.codec.binary.Base64
+
 group 'com.kyssion'
 version '1.0-SNAPSHOT'
 
+4.times { counter ->
+    task "task$counter" {
+        doLast {
+            println "I'm task number $counter"
+        }
+    }
+}
+
+task0.dependsOn task2,task3
+task hello {
+    ext.hhh="123123"
+    doLast {
+        println 'Hello world!'
+    }
+}
+hello.doLast {
+    println "Greetings from the $hello.name task. info is $hello.hhh"
+}
+
+task distribution {
+    doLast {
+        println "We build the zip with version=$version"
+    }
+}
+
+task release {
+    dependsOn 'distribution'
+    doLast {
+        println 'We release now'
+    }
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.hasTask(":release")) {
+        version = '1.0'
+    } else {
+        version = '1.0-SNAPSHOT'
+    }
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'commons-codec', name: 'commons-codec', version: '1.2'
+    }
+}
+
+task encode {
+    doLast {
+        def byte[] encodedString = new Base64().encode('hello world\n'.getBytes())
+        println new String(encodedString)
+    }
+}
