@@ -73,3 +73,37 @@ println tasks.getByPath('testProject').path
 println tasks.getByPath(':testProject').path
 println tasks.getByPath('java-web:testProject').path
 println tasks.getByPath(':java-web:testProject').path
+
+
+
+task lib1 {
+    doLast {
+        println 'lib1'
+    }
+}
+
+task lib2 {
+    doLast {
+        println 'lib2'
+    }
+}
+
+task notALib {
+    doLast {
+        println 'notALib'
+    }
+}
+
+task taskX {
+    doLast {
+        println 'taskX'
+        throw new RuntimeException()
+    }
+}
+task taskY {
+    doLast {
+        println 'taskY'
+    }
+}
+
+taskX.finalizedBy taskY
