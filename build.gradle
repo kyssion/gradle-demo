@@ -12,6 +12,7 @@ version '1.0-SNAPSHOT'
 }
 
 task0.dependsOn task2,task3
+
 task hello {
     ext.hhh="123123"
     doLast {
