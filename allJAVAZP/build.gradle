@@ -112,18 +112,10 @@ taskX.finalizedBy taskY
 
 print("$buildDir")
 
-task packageDistribution(type: Zip) {
-    archiveFileName = "my-distribution.zip"//压缩的名称
-    destinationDirectory = file("$buildDir/dist")//打包目的地
-    // 文件过滤添加逻辑
-    from(".") {
-        include "**/*.java"
-    }
-}
 
-task moveReports {
-    doLast {
-        ant.move file: "${buildDir}/reports",
-                todir: "${buildDir}/toArchive"
-    }
+task packageDistribution(type: Copy) {
+    // 文件过滤添加逻辑
+    from(".") 
+    include "**/*"
+    into ("allJAVAZP");
 }

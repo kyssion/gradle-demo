@@ -1,0 +1,10 @@
+
+//表明这个项目的名称是什么
+rootProject.name = 'gradle-demo'
+//载入其他包
+include 'greeting-library'
+include 'greeter'
+include 'create-java-library'
+include 'java-application'
+include 'java-web'
+include 'customTask'
