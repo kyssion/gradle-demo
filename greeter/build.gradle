@@ -17,3 +17,19 @@ dependencies {
     compile project(':greeting-library')
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+task list {
+    doLast {
+        File srcDir
+
+        // Create a file collection using a closure
+        FileCollection  collection = layout.files { srcDir.listFiles() }
+
+        srcDir = file('src')
+        println "Contents of $srcDir.name"
+        collection.collect { relativePath(it) }.sort().each { println it }
+
+        srcDir = file('src2')
+        println "Contents of $srcDir.name"
+        collection.collect { relativePath(it) }.sort().each { println it }
+    }
+}
